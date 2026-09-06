@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import AbstractUser, Permission
 from django.db import models
 from django.utils import timezone
 
@@ -68,6 +68,12 @@ class BuildingRole(models.Model):
         max_length=100,
         blank=True,
         verbose_name="نام فارسی",
+    )
+
+    permissions = models.ManyToManyField(
+        Permission,
+        blank=True,
+        related_name="building_roles",
     )
 
     def __str__(self):
@@ -166,6 +172,7 @@ class BuildingExpense(models.Model):
         max_digits=12,
         decimal_places=0,
         verbose_name="مبلغ (تومان)",
+        default=0
     )
 
     created_at = models.DateTimeField(

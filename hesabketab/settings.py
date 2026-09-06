@@ -119,7 +119,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-AUTH_USER_MODEL = 'Building.BuildManager'
+AUTH_USER_MODEL = 'Building.User'
 
 LOGIN_URL = 'login_manager'
 
